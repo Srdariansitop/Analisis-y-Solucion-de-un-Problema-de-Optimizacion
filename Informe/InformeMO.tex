@@ -1,0 +1,424 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz} % Para la sección de graficación, aunque aquí será simbólico
+
+\geometry{a4paper, margin=1in}
+\pagestyle{fancy}
+\fancyhead[L]{Informe de Optimización Sin Restricciones}
+\fancyhead[R]{Modelo Log-Sum-Exp}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\title{Análisis y Solución de un Problema de Optimización Sin Restricciones}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Nombre y Grupo}
+\begin{itemize}
+ \item \textbf{Nombre y Apellidos : Darián Santamarina Hernández} 
+  \item \textbf{Grupo : C-311} 
+\end{itemize}
+\section{Modelo a Analizar}
+
+El problema consiste en la optimización sin restricciones de la función objetivo $f(\mathbf{x}): \mathbb{R}^2 \to \mathbb{R}$, dada por:
+$$f(x, y) = \ln\left(e^{(x^2+y^2)} + 10e^x\right)$$
+
+\section{Análisis Teórico de los Modelos}
+
+\subsection{Existencia de Solución}
+
+\begin{itemize}
+    \item \textbf{Dominio:} El argumento del logaritmo $g(x,y) = e^{(x^2+y^2)} + 10e^x$ es la suma de exponenciales y es siempre positivo ($g(x,y) > 0$). Por lo tanto, el dominio es $\text{Dom}(f) = \mathbb{R}^2$.
+    \item \textbf{Existencia de Óptimo:} La función $f(x,y)$ es continua y coercive (tiende a infinito cuando $|\mathbf{x}| \to \infty$).
+    \begin{align*}
+        \lim_{|\mathbf{x}| \to \infty} f(x, y) &= \infty
+    \end{align*}
+    Por el Teorema de Weierstrass para funciones coercivas, existe al menos un **mínimo global**.
+\end{itemize}
+
+\subsection{Convexidad}
+
+La función $f(x,y)$ es de la forma Log-Sum-Exp: $f(\mathbf{x}) = \ln\left(e^{g_1(\mathbf{x})} + e^{g_2(\mathbf{x})}\right)$, donde:
+\begin{itemize}
+    \item $g_1(x,y) = x^2+y^2$
+    \item $g_2(x,y) = x + \ln(10)$
+\end{itemize}
+La función Log-Sum-Exp es convexa si sus argumentos $g_i(\mathbf{x})$ son convexos.
+\begin{itemize}
+    \item $g_1(x,y) = x^2+y^2$ es estrictamente convexa (su matriz Hessiana es $2\mathbf{I}$, definida positiva).
+\item \textbf{Cálculo de la Hessiana:}
+    $$\nabla^2 g_1(x,y) = \begin{pmatrix} \frac{\partial^2 g_1}{\partial x^2} & \frac{\partial^2 g_1}{\partial x \partial y} \\ \frac{\partial^2 g_1}{\partial y \partial x} & \frac{\partial^2 g_1}{\partial y^2} \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}$$
+    
+    \item \textbf{G1 conclusion:}
+    La matriz $\nabla^2 g_1(x,y)$ es una matriz diagonal con valores propios $\lambda_1 = 2$ y $\lambda_2 = 2$. Dado que ambos valores propios son estrictamente positivos ($2 > 0$), la matriz Hessiana es Definida Positiva ($\succ 0$) para todo $\mathbf{x} \in \mathbb{R}^2$.
+    
+    \item $g_2(x,y) = x + \ln(10)$ es convexa (lineal).
+\end{itemize}
+Dado que $f(x,y)$ es Log-Sum-Exp de funciones convexas, $f(x,y)$ es una función convexa. Más aún, debido al término $x^2+y^2$, $f(x,y)$ es estrictamente convexa.
+
+\begin{itemize}
+    \item \textbf{Conclusión:} La estricta convexidad garantiza la existencia de un óptimo global único.
+    \item \textbf{Extremos Locales:} Al ser estrictamente convexa, no pueden existir otros mínimos locales; el único extremo local es el mínimo global.
+\end{itemize}
+
+\subsection{Tipo de Variables}
+Variables continuas: x,y  $\in$  $\mathbb{R}$ . No hay variables discretas ni restricciones.
+
+\subsection{Cálculo del Gradiente y Hessiana}
+
+Sea $u(x,y) = e^{(x^2+y^2)} + 10e^x$. El gradiente de $f(x,y) = \ln(u)$ es $\nabla f = \frac{1}{u} \nabla u$.
+
+\subsubsection{Gradiente ($\nabla f$)}
+\begin{align*}
+    \frac{\partial u}{\partial x} &= e^{(x^2+y^2)} (2x) + 10e^x \\
+    \frac{\partial u}{\partial y} &= e^{(x^2+y^2)} (2y)
+\end{align*}
+El gradiente es:
+$$\nabla f(x, y) = \frac{1}{e^{(x^2+y^2)} + 10e^x} \begin{pmatrix} 2x e^{(x^2+y^2)} + 10e^x \\ 2y e^{(x^2+y^2)} \end{pmatrix}$$
+
+\subsubsection{Hessiana ($\nabla^2 f$)}
+% --- Matriz Hessiana del modelo ---
+Sea la función:
+\[
+f(x,y) = \ln\left(e^{x^2 + y^2} + 10e^x\right)
+\]
+
+La matriz Hessiana se obtiene mediante:
+\[
+\nabla^2 f(x,y)
+=
+\frac{1}{S}
+\begin{pmatrix}
+S_{xx} & S_{xy}\\[4pt]
+S_{xy} & S_{yy}
+\end{pmatrix}
+-
+\frac{1}{S^2}
+\begin{pmatrix}
+S_x^2 & S_x S_y\\[4pt]
+S_x S_y & S_y^2
+\end{pmatrix},
+\]
+donde:
+\[
+\begin{aligned}
+S &= e^{x^2 + y^2} + 10e^x, \\[4pt]
+S_x &= 2x e^{x^2 + y^2} + 10e^x, \\[4pt]
+S_y &= 2y e^{x^2 + y^2}, \\[4pt]
+S_{xx} &= (2 + 4x^2)e^{x^2 + y^2} + 10e^x, \\[4pt]
+S_{xy} &= 4xy e^{x^2 + y^2}, \\[4pt]
+S_{yy} &= (2 + 4y^2)e^{x^2 + y^2}.
+\end{aligned}
+\]
+
+Por tanto, la matriz Hessiana explícita es:
+\[
+\nabla^2 f(x,y) =
+\frac{1}{e^{x^2 + y^2} + 10e^x}
+\begin{pmatrix}
+(2 + 4x^2)e^{x^2 + y^2} + 10e^x & 4xy e^{x^2 + y^2}\\[6pt]
+4xy e^{x^2 + y^2} & (2 + 4y^2)e^{x^2 + y^2}
+\end{pmatrix}
+-
+\frac{1}{\left(e^{x^2 + y^2} + 10e^x\right)^2}
+\begin{pmatrix}
+(2x e^{x^2 + y^2} + 10e^x)^2 & (2x e^{x^2 + y^2} + 10e^x)(2y e^{x^2 + y^2})\\[6pt]
+(2x e^{x^2 + y^2} + 10e^x)(2y e^{x^2 + y^2}) & (2y e^{x^2 + y^2})^2
+\end{pmatrix}.
+\]
+
+
+
+
+% --- Condiciones necesarias y suficientes ---
+
+\subsection{Condiciones necesarias y suficientes}
+Función:
+\[
+f(x,y)=\ln\!\big(e^{x^{2}+y^{2}}+10e^{x}\big).
+\]
+
+\paragraph{Condición necesaria (Gradiente nulo).}
+El gradiente de $f$ es:
+\[
+\nabla f(x,y)
+=
+\frac{1}{S}
+\begin{pmatrix}
+2x e^{x^{2}+y^{2}} + 10e^{x}\\[6pt]
+2y e^{x^{2}+y^{2}}
+\end{pmatrix},
+\qquad S = e^{x^{2}+y^{2}} + 10e^{x}.
+\]
+
+Igualando a cero:
+\[
+\frac{2y e^{x^{2}+y^{2}}}{S}=0 \Rightarrow y=0,
+\]
+y sustituyendo $y=0$ en la primera componente:
+\[
+\frac{2x e^{x^{2}} + 10 e^{x}}{e^{x^{2}} + 10 e^{x}} = 0
+\quad\Longrightarrow\quad
+2x e^{x^{2}} + 10 e^{x} = 0.
+\]
+Dividiendo por $e^{x}>0$:
+\[
+2x e^{x^{2}-x} + 10 = 0
+\quad\Longleftrightarrow\quad
+2x e^{x(x-1)} = -10.
+\]
+
+Por tanto, los puntos críticos tienen la forma:
+\[
+(x,y)=(x^{*},0),
+\]
+donde $x^{*}$ es una solución real de la ecuación
+$2x e^{x^{2}} + 10 e^{x}=0$.
+Numéricamente existe una única raíz real negativa
+($x^{*}\approx -0.9012267233$).
+
+\paragraph{Condición suficiente (segunda derivada / Hessiana).}
+Sea
+\[
+\phi_1(x,y)=x^2+y^2, \qquad
+\phi_2(x,y)=x+\ln 10.
+\]
+Entonces
+\[
+f(x,y)=\ln\big(e^{\phi_1(x,y)}+e^{\phi_2(x,y)}\big).
+\]
+
+Definimos:
+\[
+p_1(x,y)=\frac{e^{\phi_1}}{e^{\phi_1}+e^{\phi_2}}, \qquad
+p_2(x,y)=\frac{e^{\phi_2}}{e^{\phi_1}+e^{\phi_2}},
+\qquad p_1,p_2>0,\;p_1+p_2=1.
+\]
+
+Una identidad útil para la función \emph{log-sum-exp} es:
+\[
+\nabla^2 f(x,y)
+= \sum_{i=1}^2 p_i\,\nabla^2 \phi_i
++ \operatorname{Cov}_p(\nabla \phi),
+\]
+donde $\operatorname{Cov}_p(\nabla \phi)$ es la matriz de covarianza
+de los gradientes $\nabla \phi_i$ bajo las probabilidades $p_i$.
+Dado que la covarianza es siempre semidefinida positiva, resulta que:
+
+\[
+\nabla^2 f(x,y) \succeq \sum_{i=1}^2 p_i\,\nabla^2 \phi_i.
+\]
+
+En nuestro caso:
+\[
+\nabla^2 \phi_1 = 2I_2, \qquad \nabla^2 \phi_2 = 0,
+\]
+por lo que:
+\[
+\nabla^2 f(x,y) = 2p_1(x,y)I_2 + \operatorname{Cov}_p(\nabla \phi)
+\succeq 2p_1(x,y)I_2.
+\]
+Como $p_1(x,y)>0$ para todo $(x,y)\in\mathbb{R}^2$,
+la matriz Hessiana es \emph{definida positiva en todo el dominio}.
+Por tanto, $f$ es \textbf{estrictamente convexa}.
+
+\paragraph{Conclusiones.}
+\begin{itemize}
+  \item La condición necesaria $\nabla f=0$ se cumple únicamente para
+  $(x,y)=(x^{*},0)$, donde $x^{*}$ es la raíz real de
+  $2x e^{x^{2}} + 10 e^{x}=0$.
+  \item La condición suficiente (Hessiana definida positiva) se cumple
+  en todo $\mathbb{R}^{2}$.
+  \item El punto $(x^{*},0)$ es por tanto un \textbf{mínimo estricto local}
+  y, debido a la convexidad global de $f$, es además el
+  \textbf{mínimo global único}.
+  \item No existen máximos locales ni puntos de silla, pues la
+  estricta convexidad excluye tales casos.
+\end{itemize}
+
+\paragraph{Comprobación numérica.}
+Evaluando la Hessiana en el punto crítico $(x^{*},0)$ con
+$x^{*}\approx -0.9012267233$, se obtienen autovalores positivos:
+\[
+\lambda_1 \approx 2.5161, \qquad \lambda_2 \approx 0.71366,
+\]
+confirmando que $\nabla^2 f(x^{*},0)$ es definida positiva.
+
+
+
+
+
+
+
+\subsection{ Que óptimos puedes encontrar teoricamente?}
+Para encontrar los óptimos (máximos o mínimos) teóricos, debemos encontrar los puntos críticos de la función. Los puntos críticos son aquellos donde el gradiente es cero, es decir, donde las derivadas parciales de primer orden son iguales a cero
+El mínimo se encuentra en un punto crítico de la forma 
+$(x^{*},0)$ donde es la solución real de
+\[
+2x e^{x^{2}-x} + 10 = 0
+\]
+
+\subsection{Existen extremos locales?}
+Hay exactamente un extremo local, y es un mínimo estricto. No existen máximos locales ni puntos de silla.
+
+
+\paragraph{Valor numérico del punto crítico.}
+Resolviendo numéricamente
+\[
+2x e^{x^{2}} + 10 e^{x} = 0
+\]
+se obtiene la raíz real
+\[
+x^{*}\approx -0.9012267233.
+\]
+Por tanto el único punto crítico es aproximadamente
+\[
+(x^{*},y^{*}) \approx \big(-0.9012267233,\;0\big),
+\]
+y ese punto es un mínimo estricto local y, por estricta convexidad, el mínimo global único de \(f\).
+
+\paragraph{Conclusión.}
+\begin{itemize}
+  \item Existe exactamente un extremo local: un mínimo estricto en \((x^{*},0)\).
+  \item No existen máximos locales ni puntos de silla.
+  \item El mínimo es único y global.
+\end{itemize}
+
+
+\section{Descripción de los algoritmos utilizados }
+\subsection{Algoritmo BFGS para Optimización No Lineal}
+
+El algoritmo BFGS (Broyden-Fletcher-Goldfarb-Shanno) es un método quasi-Newton ampliamente utilizado para optimización no lineal sin restricciones. Desarrollado independientemente por cuatro investigadores en 1970, se ha convertido en uno de los métodos más populares y robustos para problemas de optimización de mediana y gran escala.
+
+\subsubsection*{Historia y Contexto}
+
+El método BFGS fue propuesto simultáneamente en 1970 por:
+\begin{itemize}
+    \item \textbf{C. G. Broyden} - Matemático británico
+    \item \textbf{R. Fletcher} - Científico computacional británico
+    \item \textbf{D. Goldfarb} - Matemático estadounidense
+    \item \textbf{D. F. Shanno} - Matemático canadiense
+\end{itemize}
+
+Este algoritmo surge como una mejora sobre los métodos de gradiente convencionales y los métodos de Newton, combinando la eficiencia computacional con la robustez numérica.
+
+\subsubsection*{Fundamento Matemático}
+
+El algoritmo BFGS aproxima la matriz Hessiana (o su inversa) utilizando únicamente información de primer orden (gradientes), evitando el costoso cálculo de segundas derivadas. La actualización se realiza mediante la fórmula:
+
+\begin{equation}
+H_{k+1} = (I - \rho_k s_k y_k^T) H_k (I - \rho_k y_k s_k^T) + \rho_k s_k s_k^T
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item $s_k = x_{k+1} - x_k$ es el vector de desplazamiento
+    \item $y_k = \nabla f(x_{k+1}) - \nabla f(x_k)$ es la diferencia de gradientes
+    \item $\rho_k = \frac{1}{y_k^T s_k}$ es el factor de escala
+    \item $H_k$ es la aproximación actual de la inversa del Hessiano
+\end{itemize}
+
+\subsubsection*{Características Principales}
+
+\subsubsection*{Ventajas del Método BFGS}
+
+\begin{enumerate}
+    \item \textbf{Eficiencia Computacional}: Evita el cálculo explícito del Hessiano, reduciendo significativamente el costo computacional.
+    
+    \item \textbf{Convergencia Superlineal}: Bajo condiciones adecuadas, exhibe convergencia superlineal, más rápida que los métodos de gradiente.
+    
+    \item \textbf{Preservación de Definida Positividad}: La actualización BFGS mantiene la definida positividad de $H_k$ si se satisface la condición de curvatura $y_k^T s_k > 0$.
+    
+    \item \textbf{Robustez}: Funciona bien en una amplia variedad de problemas sin requerir ajustes finos de parámetros.
+    
+    \item \textbf{Escalabilidad}: Es adecuado para problemas de mediana dimensión (decenas a cientos de variables).
+\end{enumerate}
+
+\subsubsection*{Componentes del Algoritmo}
+
+El algoritmo implementado consta de tres componentes principales:
+
+\begin{enumerate}
+    \item \textbf{Función Objetivo y Gradiente}: Define el problema de optimización a resolver.
+    
+    \item \textbf{Búsqueda de Línea con Armijo}: Garantiza un decrecimiento suficiente en cada iteración mediante la condición:
+    \begin{equation}
+    f(x_k + \alpha p_k) \leq f(x_k) + c \alpha \nabla f(x_k)^T p_k
+    \end{equation}
+    
+    \item \textbf{Actualización BFGS}: Mejora iterativamente la aproximación del Hessiano inverso.
+\end{enumerate}
+
+\subsubsection*{Implementación y Consideraciones Prácticas}
+
+En la implementación mostrada, se incluyen varias salvaguardas numéricas:
+
+\begin{itemize}
+    \item \textbf{Condición de Curvatura}: Se verifica $y_k^T s_k > 10^{-10}$ antes de actualizar $H_k$
+    \item \textbf{Criterio de Parada}: Basado en la norma del gradiente $\|\nabla f(x_k)\| < \text{tol}$
+    \item \textbf{Límite de Iteraciones}: Evita ciclos infinitos con un máximo de iteraciones
+    \item \textbf{Estabilización Numérica}: Uso de log-sum-exp para evitar overflow numérico
+\end{itemize}
+
+\subsubsection*{Aplicaciones y Casos de Uso}
+
+El algoritmo BFGS es particularmente útil en:
+
+\begin{itemize}
+    \item Problemas de aprendizaje automático (regresión logística, SVM)
+    \item Calibración de modelos financieros
+    \item Optimización de parámetros en ingeniería
+    \item Ajuste de curvas en análisis de datos
+    \item Problemas de diseño óptimo
+\end{itemize}
+
+\subsubsection*{Limitaciones y Alternativas}
+
+Aunque BFGS es muy efectivo, presenta algunas limitaciones:
+
+\begin{itemize}
+    \item Requiere almacenar una matriz $n \times n$, lo que puede ser costoso para problemas de muy alta dimensión.
+    \item Para problemas a gran escala ($n > 1000$), se prefieren métodos de memoria limitada como L-BFGS.
+    \item La convergencia a óptimos globales no está garantizada en funciones no convexas.
+\end{itemize}
+
+\subsubsection*{Conclusión}
+
+El algoritmo BFGS representa un equilibrio óptimo entre eficiencia computacional, velocidad de convergencia y facilidad de implementación. Su robustez y versatilidad lo convierten en la elección predilecta para una amplia gama de problemas de optimización no lineal en la práctica ingenieril y científica.
+
+La implementación presentada demuestra cómo combinar la actualización BFGS con búsqueda de línea por condiciones de Armijo para crear un método de optimización completo y numéricamente estable.
+
+
+
+
+
+
+
+
+
+
+\section{6- Graficación del Modelo y de Instancias de los Algoritmos}
+
+\subsection{Modelo}
+Se requiere una gráfica de las **curvas de nivel (Contour Plot)** de la función $f(x,y)$ en la región de interés (alrededor del óptimo, que se espera esté en $x \approx -1$, $y=0$).
+\begin{center}
+    
+\end{center}
+La gráfica mostrará contornos elípticos o ligeramente distorsionados, característicos de una función convexa.
+
+\subsection{Instancias de los Algoritmos}
+Sobre la gráfica de contorno, se superpondrán las **trayectorias** $\mathbf{x}_0 \to \mathbf{x}_1 \to \dots \to \mathbf{x}^*$ seguidas por el GD y el NAG para los diferentes puntos de partida.
+\begin{itemize}
+    \item \textbf{GD:} La trayectoria será zigzagueante si el problema está mal condicionado, o más directa si está bien condicionado, acercándose al mínimo.
+    \item \textbf{NAG:} Se esperará una trayectoria más suave y con menos oscilaciones que el GD, demostrando la naturaleza acelerada del algoritmo.
+\end{itemize}
+
+\end{document}
