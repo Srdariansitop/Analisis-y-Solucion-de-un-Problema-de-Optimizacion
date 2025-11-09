@@ -4,6 +4,13 @@
 \usepackage{amsmath, amssymb}
 \usepackage{geometry}
 \usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+
 \usepackage{tikz} % Para la sección de graficación, aunque aquí será simbólico
 
 \geometry{a4paper, margin=1in}
@@ -395,6 +402,98 @@ Aunque BFGS es muy efectivo, presenta algunas limitaciones:
 El algoritmo BFGS representa un equilibrio óptimo entre eficiencia computacional, velocidad de convergencia y facilidad de implementación. Su robustez y versatilidad lo convierten en la elección predilecta para una amplia gama de problemas de optimización no lineal en la práctica ingenieril y científica.
 
 La implementación presentada demuestra cómo combinar la actualización BFGS con búsqueda de línea por condiciones de Armijo para crear un método de optimización completo y numéricamente estable.
+
+
+\subsection{El Algoritmo: Newton Amortiguado}
+
+El objetivo del algoritmo es encontrar el vector $\mathbf{x}^*$ que minimiza una función $f(\mathbf{x})$, donde $\mathbf{x}$ es un vector de variables.
+
+Este método es un algoritmo de segundo orden porque utiliza no solo la pendiente (el gradiente, $\nabla f(\mathbf{x})$) sino también la curvatura (el Hessiano, $\mathbf{H}(\mathbf{x})$) para tomar decisiones sobre la dirección y el tamaño del paso.
+
+\subsection*{La Dirección de Newton Original}
+
+El Método de Newton puro calcula una dirección de paso $\mathbf{p}_k$ en cada iteración $k$ resolviendo el siguiente sistema de ecuaciones lineales:
+
+\[
+\mathbf{H}_k \mathbf{p}_k = -\nabla f_k
+\]
+
+Donde $\mathbf{H}_k$ es el Hessiano (matriz de segundas derivadas) evaluado en el punto actual $\mathbf{x}_k$, y $\nabla f_k$ es el gradiente.
+
+\begin{itemize}
+\item \textbf{Ventaja:} Si la función es cuadrática, converge en una sola iteración. Cerca del óptimo, converge cuadráticamente (muy rápido).
+\item \textbf{Problema:} Requiere que el Hessiano $\mathbf{H}_k$ sea Definido Positivo (DP) en cada iteración. Si no lo es (o es singular), la dirección $\mathbf{p}_k$ puede no ser una dirección de descenso, o el sistema no tiene solución única. Esto hace al método puro inestable si el punto inicial está lejos del óptimo.
+\end{itemize}
+
+\paragraph{ Estabilización: Damping (Amortiguamiento)}
+El algoritmo de Newton Amortiguado aborda la inestabilidad del método puro añadiendo un término de regularización (o damping) al Hessiano. Esto se hace de forma análoga al método de Levenberg-Marquardt.
+
+\subsection*{El Paso de Newton Amortiguado}
+
+En lugar de resolver el sistema de Newton puro, se resuelve el sistema amortiguado, introduciendo un parámetro $\lambda > 0$:
+
+\[
+(\mathbf{H}_k + \lambda \mathbf{I}) \mathbf{p}_k = -\nabla f_k
+\]
+
+Donde $\mathbf{I}$ es la matriz identidad.
+
+\paragraph{Efecto de $\lambda$:}
+\begin{itemize}
+\item Si $\lambda$ es pequeño (cercano a cero), la matriz $\mathbf{H}_k + \lambda \mathbf{I}$ se parece a $\mathbf{H}_k$, y el paso $\mathbf{p}_k$ se acerca al paso de Newton (rápido).
+\item Si $\lambda$ es grande, la matriz se parece a $\lambda \mathbf{I}$, y el sistema se convierte en $(\lambda \mathbf{I}) \mathbf{p}_k \approx -\nabla f_k$, por lo que $\mathbf{p}_k \approx -\frac{1}{\lambda} \nabla f_k$. Esto se aproxima al paso de Máximo Descenso (más lento, pero garantiza descenso).
+\end{itemize}
+
+El algoritmo ajusta $\lambda$ dinámicamente:
+\begin{itemize}
+\item Si un paso es exitoso (la función disminuye), se reduce $\lambda$ (hacia Newton).
+\item Si el paso falla o la dirección no es de descenso, se aumenta $\lambda$ (hacia Máximo Descenso, para estabilizar).
+\end{itemize}
+
+\subsection*{ Búsqueda de Línea (Armijo Backtracking)}
+
+Una vez que se tiene una dirección de búsqueda $\mathbf{p}_k$, el algoritmo necesita decidir cuánto avanzar en esa dirección, es decir, encontrar el tamaño de paso $\alpha$.
+
+\subsection*{La Búsqueda de Línea de Armijo}
+
+La Búsqueda de Línea con backtracking (retroceso) de Armijo es un procedimiento que comienza con un $\alpha$ grande (por ejemplo, $\alpha=1$) y lo va reduciendo hasta que se cumpla una condición que asegure un ``descenso suficiente'' en la función.
+
+\paragraph{Condición de Armijo (Suficiente Descenso):}
+\[
+f(\mathbf{x}_k + \alpha \mathbf{p}_k) \le f(\mathbf{x}_k) + c \cdot \alpha \cdot \nabla f(\mathbf{x}_k)^T \mathbf{p}_k
+\]
+
+El término $c \cdot \alpha \cdot \nabla f(\mathbf{x}_k)^T \mathbf{p}_k$ es un descenso ``predicho'' linealmente. La condición asegura que el descenso real ($f(\mathbf{x}_k) - f(\mathbf{x}_k + \alpha \mathbf{p}_k)$) es al menos una pequeña fracción ($c$) del descenso predicho.
+
+\subsection*{ Resumen del Flujo}
+
+En cada iteración, el algoritmo realiza lo siguiente:
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Evaluar:} Calcular el valor de la función $f_k$, el gradiente $\nabla f_k$ y el Hessiano $\mathbf{H}_k$.
+\item \textbf{Verificar Parada:} Si $||\nabla f_k||$ es menor que la tolerancia, detener (se está cerca de un mínimo).
+\item \textbf{Calcular Dirección:} Resolver el sistema amortiguado $(\mathbf{H}_k + \lambda \mathbf{I}) \mathbf{p}_k = -\nabla f_k$.
+\item \textbf{Ajustar Damping:} Verificar si $\mathbf{p}_k$ es una dirección de descenso. Si no, aumentar $\lambda$ y volver al paso 3 (intentar de nuevo).
+\item \textbf{Buscar Paso ($\alpha$):} Usar el método de Armijo para encontrar un tamaño de paso $\alpha$ adecuado a lo largo de $\mathbf{p}_k$.
+\item \textbf{Actualizar:} $\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha \mathbf{p}_k$.
+\item \textbf{Ajustar Damping (Convergencia):} Si el paso fue exitoso, reducir $\lambda$ para favorecer el comportamiento de Newton.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
