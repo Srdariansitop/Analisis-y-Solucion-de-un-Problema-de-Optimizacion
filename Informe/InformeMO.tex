@@ -10,6 +10,9 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{enumitem}
+\usepackage{float}        % para usar [H]
+\usepackage{booktabs}     % para usar top/mid/bottomrule
+\usepackage{graphicx}     % para insertar imágenes
 
 \usepackage{tikz} % Para la sección de graficación, aunque aquí será simbólico
 
@@ -488,6 +491,40 @@ En cada iteración, el algoritmo realiza lo siguiente:
 
 
 
+\section{Comparación entre los métodos BFGS y Newton amortiguado}
+
+Con el objetivo de evaluar el desempeño de ambos métodos de optimización, se aplicaron sobre un mismo conjunto de $100$ puntos iniciales. A continuación se presenta un resumen de los resultados obtenidos.
+
+\begin{table}[H]
+\centering
+\caption{Resumen comparativo de desempeño promedio entre BFGS y Newton amortiguado}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Métrica} & \textbf{BFGS} & \textbf{Newton amortiguado} \\
+\midrule
+Iteraciones promedio & 8.79 & 6.02 \\
+Norma del gradiente promedio & $2.82\times 10^{-7}$ & $1.33\times 10^{-9}$ \\
+Valor promedio de $f_{opt}$ & $1.8427048713555$ & $1.8427048713555$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+En la Figura~\ref{fig:comp-metodos} se observa que el método de Newton amortiguado requiere, en promedio, alrededor de $2.8$ iteraciones menos que el método BFGS para alcanzar la convergencia. Además, logra una norma del gradiente significativamente menor, lo que indica una mayor precisión numérica en el punto óptimo encontrado.
+
+\begin{itemize}
+    \item Ambos métodos convergen al mismo punto óptimo global, con diferencias en $f(x^*)$ del orden de $10^{-14}$.
+    \item El método de Newton presenta una convergencia más rápida y estable frente a distintos puntos iniciales.
+    \item BFGS, aunque más lento, mantiene una robustez general y no requiere el cálculo directo de la Hessiana.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{comparacion_iteraciones.png}
+\caption{Comparación del número de iteraciones promedio entre BFGS y Newton amortiguado.}
+\label{fig:comp-metodos}
+\end{figure}
+
+En conclusión, el método de \textbf{Newton amortiguado (trust region)} demostró un mejor desempeño global en términos de velocidad de convergencia y precisión, mientras que \textbf{BFGS} ofrece una alternativa eficiente cuando no se dispone del Hessiano o su cálculo resulta costoso.
 
 
 
@@ -503,15 +540,15 @@ En cada iteración, el algoritmo realiza lo siguiente:
 
 
 
-
-\section{6- Graficación del Modelo y de Instancias de los Algoritmos}
+\section{Graficación del Modelo y de Instancias de los Algoritmos}
 
 \subsection{Modelo}
-Se requiere una gráfica de las **curvas de nivel (Contour Plot)** de la función $f(x,y)$ en la región de interés (alrededor del óptimo, que se espera esté en $x \approx -1$, $y=0$).
+Lo haremos con un mapa de contorno (contour plot) y una superficie 3D, para observar dónde están los mínimos.
 \begin{center}
     
 \end{center}
-La gráfica mostrará contornos elípticos o ligeramente distorsionados, característicos de una función convexa.
+Se mostrará la forma de 
+f(x,y): una superficie suave con un mínimo claro en torno a $x \approx -0.9$, $y=0$)
 
 \subsection{Instancias de los Algoritmos}
 Sobre la gráfica de contorno, se superpondrán las **trayectorias** $\mathbf{x}_0 \to \mathbf{x}_1 \to \dots \to \mathbf{x}^*$ seguidas por el GD y el NAG para los diferentes puntos de partida.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.25)  9 NOV 2025 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.25)  10 NOV 2025 23:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -194,31 +194,37 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@count@id=\count279
 \enitdp@description=\count280
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
-ty
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
-common.tex
-\pgfutil@everybye=\toks29
-\pgfutil@tempdima=\dimen160
-\pgfutil@tempdimb=\dimen161
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count281
+\float@exts=\toks29
+\float@box=\box54
+\@float@everytoks=\toks30
+\@floatcapt=\box55
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
-latex.def
-\pgfutil@abb=\box54
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen160
+\lightrulewidth=\dimen161
+\cmidrulewidth=\dimen162
+\belowrulesep=\dimen163
+\belowbottomsep=\dimen164
+\aboverulesep=\dimen165
+\abovetopsep=\dimen166
+\cmidrulesep=\dimen167
+\cmidrulekern=\dimen168
+\defaultaddspace=\dimen169
+\@cmidla=\count282
+\@cmidlb=\count283
+\@aboverulesep=\dimen170
+\@belowrulesep=\dimen171
+\@thisruleclass=\count284
+\@lastruleclass=\count285
+\@thisrulewidth=\dimen172
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
-ode.tex
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
-))
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
-ty (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
@@ -234,9 +240,33 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen162
-\Gin@req@width=\dimen163
+\Gin@req@height=\dimen173
+\Gin@req@width=\dimen174
 )
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
+ty
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+common.tex
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen175
+\pgfutil@tempdimb=\dimen176
+)
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+latex.def
+\pgfutil@abb=\box56
+)
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
+ode.tex
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
+ty
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.s
 ty
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
@@ -245,33 +275,33 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
 code.tex
-\pgfkeys@pathtoks=\toks30
-\pgfkeys@temptoks=\toks31
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
 
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysl
 ibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks32
+\pgfkeys@tmptoks=\toks34
 ))
-\pgf@x=\dimen164
-\pgf@y=\dimen165
-\pgf@xa=\dimen166
-\pgf@ya=\dimen167
-\pgf@xb=\dimen168
-\pgf@yb=\dimen169
-\pgf@xc=\dimen170
-\pgf@yc=\dimen171
-\pgf@xd=\dimen172
-\pgf@yd=\dimen173
+\pgf@x=\dimen177
+\pgf@y=\dimen178
+\pgf@xa=\dimen179
+\pgf@ya=\dimen180
+\pgf@xb=\dimen181
+\pgf@yb=\dimen182
+\pgf@xc=\dimen183
+\pgf@yc=\dimen184
+\pgf@xd=\dimen185
+\pgf@yd=\dimen186
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count281
-\c@pgf@countb=\count282
-\c@pgf@countc=\count283
-\c@pgf@countd=\count284
-\t@pgf@toka=\toks33
-\t@pgf@tokb=\toks34
-\t@pgf@tokc=\toks35
-\pgf@sys@id@count=\count285
+\c@pgf@counta=\count286
+\c@pgf@countb=\count287
+\c@pgf@countc=\count288
+\c@pgf@countd=\count289
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count290
 
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cf
 g
@@ -290,8 +320,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
 softpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count286
-\pgfsyssoftpath@bigbuffer@items=\count287
+\pgfsyssoftpath@smallbuffer@items=\count291
+\pgfsyssoftpath@bigbuffer@items=\count292
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
 protocol.code.tex
@@ -326,12 +356,12 @@ tex
 ode.tex)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser
 .code.tex
-\pgfmath@dimen=\dimen174
-\pgfmath@count=\count288
-\pgfmath@box=\box55
-\pgfmath@toks=\toks36
-\pgfmath@stack@operand=\toks37
-\pgfmath@stack@operation=\toks38
+\pgfmath@dimen=\dimen187
+\pgfmath@count=\count293
+\pgfmath@box=\box57
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
 ons.code.tex)
@@ -355,59 +385,59 @@ ons.integerarithmetics.code.tex)
 ode.tex)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.
 code.tex
-\c@pgfmathroundto@lastzeros=\count289
+\c@pgfmathroundto@lastzeros=\count294
 ))
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.t
 ex)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 points.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen175
-\pgf@picmaxx=\dimen176
-\pgf@picminy=\dimen177
-\pgf@picmaxy=\dimen178
-\pgf@pathminx=\dimen179
-\pgf@pathmaxx=\dimen180
-\pgf@pathminy=\dimen181
-\pgf@pathmaxy=\dimen182
-\pgf@xx=\dimen183
-\pgf@xy=\dimen184
-\pgf@yx=\dimen185
-\pgf@yy=\dimen186
-\pgf@zx=\dimen187
-\pgf@zy=\dimen188
+\pgf@picminx=\dimen188
+\pgf@picmaxx=\dimen189
+\pgf@picminy=\dimen190
+\pgf@picmaxy=\dimen191
+\pgf@pathminx=\dimen192
+\pgf@pathmaxx=\dimen193
+\pgf@pathminy=\dimen194
+\pgf@pathmaxy=\dimen195
+\pgf@xx=\dimen196
+\pgf@xy=\dimen197
+\pgf@yx=\dimen198
+\pgf@yy=\dimen199
+\pgf@zx=\dimen256
+\pgf@zy=\dimen257
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 pathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen189
-\pgf@path@lasty=\dimen190
+\pgf@path@lastx=\dimen258
+\pgf@path@lasty=\dimen259
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 pathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen191
-\pgf@shorten@start@additional=\dimen192
+\pgf@shorten@end@additional=\dimen260
+\pgf@shorten@start@additional=\dimen261
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 scopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box56
-\pgf@hbox=\box57
-\pgf@layerbox@main=\box58
-\pgf@picture@serial@count=\count290
+\pgfpic=\box58
+\pgf@hbox=\box59
+\pgf@layerbox@main=\box60
+\pgf@picture@serial@count=\count295
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 graphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen193
+\pgflinewidth=\dimen262
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 transformations.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen194
-\pgf@pt@y=\dimen195
-\pgf@pt@temp=\dimen196
+\pgf@pt@x=\dimen263
+\pgf@pt@y=\dimen264
+\pgf@pt@temp=\dimen265
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 quick.code.tex
@@ -424,14 +454,14 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 arrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen197
+\pgfarrowsep=\dimen266
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 shade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen198
-\pgf@sys@shading@range@num=\count291
-\pgf@shadingcount=\count292
+\pgf@max=\dimen267
+\pgf@sys@shading@range@num=\count296
+\pgf@shadingcount=\count297
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 image.code.tex
@@ -440,7 +470,7 @@ File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 external.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box59
+\pgfexternal@startupbox=\box61
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
 layers.code.tex
@@ -461,7 +491,7 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodules
 hapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box60
+\pgfnodeparttextbox=\box62
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulep
 lot.code.tex
@@ -470,8 +500,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
 p-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen199
-\pgf@nodesepend=\dimen256
+\pgf@nodesepstart=\dimen268
+\pgf@nodesepend=\dimen269
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
 p-version-1-18.sty
@@ -489,10 +519,10 @@ tex))
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.c
 ode.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen257
-\pgffor@skip=\dimen258
-\pgffor@stack=\toks39
-\pgffor@toks=\toks40
+\pgffor@iter=\dimen270
+\pgffor@skip=\dimen271
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
 ))
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
 \tikz.code.tex
@@ -501,34 +531,34 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
 ryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count293
-\pgfplotmarksize=\dimen259
+\pgf@plot@mark@count=\count298
+\pgfplotmarksize=\dimen272
 )
-\tikz@lastx=\dimen260
-\tikz@lasty=\dimen261
-\tikz@lastxsaved=\dimen262
-\tikz@lastysaved=\dimen263
-\tikz@lastmovetox=\dimen264
-\tikz@lastmovetoy=\dimen265
-\tikzleveldistance=\dimen266
-\tikzsiblingdistance=\dimen267
-\tikz@figbox=\box61
-\tikz@figbox@bg=\box62
-\tikz@tempbox=\box63
-\tikz@tempbox@bg=\box64
-\tikztreelevel=\count294
-\tikznumberofchildren=\count295
-\tikznumberofcurrentchild=\count296
-\tikz@fig@count=\count297
+\tikz@lastx=\dimen273
+\tikz@lasty=\dimen274
+\tikz@lastxsaved=\dimen275
+\tikz@lastysaved=\dimen276
+\tikz@lastmovetox=\dimen277
+\tikz@lastmovetoy=\dimen278
+\tikzleveldistance=\dimen279
+\tikzsiblingdistance=\dimen280
+\tikz@figbox=\box63
+\tikz@figbox@bg=\box64
+\tikz@tempbox=\box65
+\tikz@tempbox@bg=\box66
+\tikztreelevel=\count299
+\tikznumberofchildren=\count300
+\tikznumberofcurrentchild=\count301
+\tikz@fig@count=\count302
 
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulem
 atrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count298
-\pgfmatrixcurrentcolumn=\count299
-\pgf@matrix@numberofcolumns=\count300
+\pgfmatrixcurrentrow=\count303
+\pgfmatrixcurrentcolumn=\count304
+\pgf@matrix@numberofcolumns=\count305
 )
-\tikz@expandcount=\count301
+\tikz@expandcount=\count306
 
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
 /libraries\tikzlibrarytopaths.code.tex
@@ -537,30 +567,30 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count302
-\l__pdf_internal_box=\box65
+\l__color_backend_stack_int=\count307
+\l__pdf_internal_box=\box67
 ) (InformeMO.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
 \openout1 = `InformeMO.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -600,17 +630,17 @@ LaTeX Info: Redefining \% on input line 27.
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count303
-\scratchdimen=\dimen268
-\scratchbox=\box66
-\nofMPsegments=\count304
-\nofMParguments=\count305
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count306
-\MPscratchDim=\dimen269
-\MPnumerator=\count307
-\makeMPintoPDFobject=\count308
-\everyMPtoPDFconversion=\toks42
+\scratchcounter=\count308
+\scratchdimen=\dimen281
+\scratchbox=\box68
+\nofMPsegments=\count309
+\nofMParguments=\count310
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count311
+\MPscratchDim=\dimen282
+\MPnumerator=\count312
+\makeMPintoPDFobject=\count313
+\everyMPtoPDFconversion=\toks44
 )
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
 se.sty
@@ -622,12 +652,12 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
  (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -639,12 +669,18 @@ LaTeX Warning: No \author given.
 [1
 
 {C:/Users/DELL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (224.14966pt too wide) detected at line 143
+Overfull \hbox (224.14966pt too wide) detected at line 146
 \OMS/cmsy/m/n/10 r[]\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT
 1/cmr/m/n/10 ) = [] [] \OMS/cmsy/m/n/10 ^^@ [] [] \OML/cmm/m/it/10 :
  []
 
-[2] [3] [4] [5] [6] [7] [8] (InformeMO.aux
+[2] [3] [4] [5] [6] [7]
+<comparacion_iteraciones.png, id=43, 489.62926pt x 327.02174pt>
+File: comparacion_iteraciones.png Graphic file (type png)
+<use comparacion_iteraciones.png>
+Package pdftex.def Info: comparacion_iteraciones.png  used on input line 522.
+(pdftex.def)             Requested size: 362.37569pt x 242.02722pt.
+ [8 <./comparacion_iteraciones.png>] [9] (InformeMO.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -654,13 +690,13 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15726 strings out of 474486
- 311402 string characters out of 5744227
+ 15884 strings out of 474486
+ 314123 string characters out of 5744227
  1944542 words of memory out of 5000000
- 37753 multiletter control sequences out of 15000+600000
+ 37903 multiletter control sequences out of 15000+600000
  566897 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,13n,107p,392b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,392b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx12.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -679,9 +715,9 @@ ts/cm/cmsy10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy7.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmti10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on InformeMO.pdf (8 pages, 224966 bytes).
+Output written on InformeMO.pdf (9 pages, 264905 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
