@@ -572,5 +572,78 @@ f(x,y): una superficie suave con un mínimo claro en torno a $x \approx -0.9$, $
 
 \subsection{Instancias de los Algoritmos}
 
+\subsubsection*{Puntos Iniciales ($x_0$):}
+\subsubsection*{ Importancia de la Dispersión:}
+  La  muestra que los puntos iniciales están altamente dispersos (cubren un amplio rango, como $-100$ a $100$ en $x_1$ y $x_2$).Los puntos se toman del archivo $initial_points.json$
+  generado aleatoriamente 
+ \subsubsection*{Propósito:}
+  Utilizar puntos iniciales dispersos es una excelente práctica para la optimización.
+ \subsubsection*{Significado:} 
+ Esto asegura que los algoritmos no se queden atrapados en un mínimo local o en una región de la función que no sea representativa. Al probar con diferentes $x_0$, se verifica la robustez y la capacidad de convergencia global del método, incluso cuando el punto de partida está muy lejos de la solución óptima.
+\subsubsection*{Resultado Observable:} A pesar de la amplia dispersión de $x_0$, casi todas las instancias de ambos algoritmos convergen al mismo punto (alrededor de $x_1 \approx -0.9012, x_2 \approx 0$), lo que indica que el mínimo global es el único mínimo relevante en la región explorada.
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+\subsubsection*{Algoritmo de Newton Amortiguado (Damped Newton Trust)}
+Al examinar los valores de $x_opt$ y iterations en $results_newton.json:$
+\subsubsection*{Precisión:}
+ Los valores de $x_{opt}$ son extremadamente precisos. El componente $x_2$ está típicamente en el rango de $10^{-11}$ a $10^{-15}$ (muy cercano a cero), y el gradiente $(grad_norm)$ es similarmente pequeño.
+\subsubsection*{Eficiencia:}
+ El número de iteraciones (iterations) es notablemente bajo, a menudo entre 5 y 8 iteraciones para alcanzar la convergencia, incluso desde puntos iniciales lejanos.
+
+\subsubsection*{Conclusión:}
+ La convergencia de este método es de segundo orden (cuadrática), utilizando la matriz Hessiana para encontrar la dirección óptima de manera muy eficiente. Esto lo convierte en el método más rápido y preciso en la región del óptimo.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+--------------------------------------------------------------------------------------------------------------------------------
+\subsubsection*{Algoritmo BFGS}
+Al examinar los valores de $x_opt$ y iters en $bfgs_results.json:$
+\subsubsection*{Precisión:}
+ La precisión de BFGS es excelente, pero generalmente ligeramente inferior a la de Newton. Los valores de $x_2$ suelen ser del orden de $10^{-7}$ a $10^{-9}$.
+ \subsubsection*{Eficiencia:} El número de iteraciones (iters) es mayor que en Newton, típicamente entre 8 y 12 iteraciones. Esto es normal, ya que BFGS es un método de cuasi-Newton que aproxima la matriz Hessiana.
+ \subsubsection*{Robustez (success):} Es fundamental revisar cuántas instancias tienen "success": true. Si el número es alto, significa que BFGS también es un algoritmo muy robusto para esta función, capaz de manejar la alta curvatura de la función.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Instancia_algoritmos.png}
+\caption{Comparacion de Resultados de instancias de BFGS VS Newton}
+\label{fig:x3}
+\end{figure}
+
+\subsection*{Conclusión Final}
+Ambos algoritmos demostraron una excelente robustez al converger de manera consistente al mismo mínimo global, a pesar de que los puntos iniciales estaban distribuidos en un amplio dominio.
+
+El algoritmo Damped Newton Trust fue el más eficiente en términos de número de iteraciones y el más preciso en la localización del mínimo. El algoritmo BFGS fue una alternativa robusta, aunque requirió un poco más de iteraciones y logró una precisión ligeramente menor. En un contexto real, la elección dependería del compromiso entre el costo computacional por iteración (menor en BFGS) y la velocidad de convergencia global (mayor en Newton).
+
+
+
+
+
+
+
+
+
 
 \end{document}

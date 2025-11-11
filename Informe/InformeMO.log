@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.25)  10 NOV 2025 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.25)  11 NOV 2025 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -691,7 +691,13 @@ File: Superficie.png Graphic file (type png)
 <use Superficie.png>
 Package pdftex.def Info: Superficie.png  used on input line 560.
 (pdftex.def)             Requested size: 362.37569pt x 179.20016pt.
- [9 <./contorno.png> <./Superficie.png>] (InformeMO.aux
+ [9 <./contorno.png> <./Superficie.png>]
+<Instancia_algoritmos.png, id=56, 1151.502pt x 567.3195pt>
+File: Instancia_algoritmos.png Graphic file (type png)
+<use Instancia_algoritmos.png>
+Package pdftex.def Info: Instancia_algoritmos.png  used on input line 630.
+(pdftex.def)             Requested size: 362.37569pt x 178.53345pt.
+ [10] [11 <./Instancia_algoritmos.png>] (InformeMO.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -701,13 +707,13 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15899 strings out of 474486
- 314399 string characters out of 5744227
+ 15915 strings out of 474486
+ 314731 string characters out of 5744227
  1944542 words of memory out of 5000000
- 37918 multiletter control sequences out of 15000+600000
+ 37934 multiletter control sequences out of 15000+600000
  566897 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,392b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,494b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx12.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -726,9 +732,9 @@ ts/cm/cmsy10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy7.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmti10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on InformeMO.pdf (9 pages, 851090 bytes).
+Output written on InformeMO.pdf (11 pages, 970030 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
+ 130 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
