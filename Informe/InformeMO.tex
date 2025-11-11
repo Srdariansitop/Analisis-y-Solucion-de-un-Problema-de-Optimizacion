@@ -509,7 +509,7 @@ Valor promedio de $f_{opt}$ & $1.8427048713555$ & $1.8427048713555$ \\
 \end{tabular}
 \end{table}
 
-En la Figura~\ref{fig:comp-metodos} se observa que el método de Newton amortiguado requiere, en promedio, alrededor de $2.8$ iteraciones menos que el método BFGS para alcanzar la convergencia. Además, logra una norma del gradiente significativamente menor, lo que indica una mayor precisión numérica en el punto óptimo encontrado.
+En la Figura 1 se observa que el método de Newton amortiguado requiere, en promedio, alrededor de $2.8$ iteraciones menos que el método BFGS para alcanzar la convergencia. Además, logra una norma del gradiente significativamente menor, lo que indica una mayor precisión numérica en el punto óptimo encontrado.
 
 \begin{itemize}
     \item Ambos métodos convergen al mismo punto óptimo global, con diferencias en $f(x^*)$ del orden de $10^{-14}$.
@@ -545,16 +545,32 @@ En conclusión, el método de \textbf{Newton amortiguado (trust region)} demostr
 \subsection{Modelo}
 Lo haremos con un mapa de contorno (contour plot) y una superficie 3D, para observar dónde están los mínimos.
 \begin{center}
-    
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{contorno.png}
+\caption{Se mostrará la forma de 
+f(x,y): una superficie suave con un mínimo claro en torno a $x \approx -0.9$, $y=0$}
+\label{fig:x1}
+\end{figure}
 \end{center}
-Se mostrará la forma de 
-f(x,y): una superficie suave con un mínimo claro en torno a $x \approx -0.9$, $y=0$)
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Superficie.png}
+\caption{Superficie de f(x,y) 3D}
+\label{fig:x2}
+\end{figure}
+
+
+
+
+
+
+
+
 
 \subsection{Instancias de los Algoritmos}
-Sobre la gráfica de contorno, se superpondrán las **trayectorias** $\mathbf{x}_0 \to \mathbf{x}_1 \to \dots \to \mathbf{x}^*$ seguidas por el GD y el NAG para los diferentes puntos de partida.
-\begin{itemize}
-    \item \textbf{GD:} La trayectoria será zigzagueante si el problema está mal condicionado, o más directa si está bien condicionado, acercándose al mínimo.
-    \item \textbf{NAG:} Se esperará una trayectoria más suave y con menos oscilaciones que el GD, demostrando la naturaleza acelerada del algoritmo.
-\end{itemize}
+
 
 \end{document}
