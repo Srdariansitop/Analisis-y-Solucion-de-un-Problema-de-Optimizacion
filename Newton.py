@@ -1,4 +1,5 @@
 import numpy as np
+import json
 
 # -----------------------------
 # Evaluación numéricamente estable de f, gradiente y Hessiano
@@ -159,36 +160,38 @@ def damped_newton_trust(f, grad, hess, x0, tol=1e-8, max_iter=200,
 # Ejemplo de ejecución (main)
 # -----------------------------
 if __name__ == "__main__":
-    initials = [
-        np.array([0.0, 0.0]),
-        np.array([1.0, 0.0]),
-        np.array([-1.0, 2.0]),
-        np.array([2.0, 2.0])
-    ]
+    # 1️⃣ Leer los puntos iniciales desde el JSON
+    with open("initial_points.json", "r") as f:
+        data = json.load(f)
+        # Si el archivo es una lista, la usamos directamente
+        if isinstance(data, dict):
+            initials = np.array(data["points"])
+        else:
+            initials = np.array(data)
+
+    print(f"Se leyeron {len(initials)} puntos iniciales desde 'initial_points.json'\n")
 
     results = []
-    for x0 in initials:
-        xopt, fopt, gnorm, its, hist = damped_newton_trust(
-            f_stable, grad_f_stable, hess_f_stable, x0
-        )
-        print("Init:", x0, "-> x*:", np.round(xopt, 6),
-              " f*:", np.round(fopt, 8), "||grad||:", np.format_float_scientific(gnorm, 2),
-              "iter:", its)
-        results.append((x0, xopt, fopt, gnorm, its))
 
-    # Graficar convergencia (norma del gradiente) del último historial como ejemplo
-    try:
-        import matplotlib.pyplot as plt
-        hist = hist  # historial de la última ejecución
-        iter_nums = [h[0] for h in hist if isinstance(h[0], int)]
-        grad_norms = [h[3] for h in hist if isinstance(h[0], int)]
-        if len(iter_nums) > 0:
-            plt.semilogy(iter_nums, grad_norms, marker='o')
-            plt.xlabel('Iteración')
-            plt.ylabel('||grad|| (escala log)')
-            plt.title('Convergencia (ejemplo)')
-            plt.grid(True)
-            plt.show()
-    except Exception:
-        # si no hay matplotlib, no graficamos pero el algoritmo sigue funcionando
-        pass
+    # 2️⃣ Ejecutar el método de Newton desde cada punto
+    for i, x0 in enumerate(initials, 1):
+        xopt, fopt, gnorm, its, hist = damped_newton_trust(
+            f_stable, grad_f_stable, hess_f_stable, np.array(x0)
+        )
+        results.append({
+            "index": i,
+            "x0": x0.tolist(),
+            "x_opt": xopt.tolist(),
+            "f_opt": float(fopt),
+            "grad_norm": float(gnorm),
+            "iterations": int(its)
+        })
+        print(f"{i:3d}) Init={np.round(x0,3)}  ->  x*={np.round(xopt,6)}  "
+              f"f*={fopt:.8f}  ||grad||={gnorm:.2e}  iters={its}")
+
+    # 3️⃣ Guardar los resultados en un nuevo JSON
+    output_data = {"method": "damped_newton_trust", "results": results}
+    with open("results_newton.json", "w") as f:
+        json.dump(output_data, f, indent=4)
+
+    print("\n✅ Resultados guardados en 'results_newton.json'")
