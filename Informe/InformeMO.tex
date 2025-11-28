@@ -293,19 +293,16 @@ donde:
 
 
 
- \textbf{Eficiencia Computacional}: Evita el cálculo explícito del Hessiano, reduciendo significativamente el costo computacional.\textbf{Convergencia Superlineal}: Bajo condiciones adecuadas, exhibe convergencia superlineal, más rápida que los métodos de gradiente.\textbf{Preservación de Definida Positividad}: La actualización BFGS mantiene la definida positividad de $H_k$ si se satisface la condición de curvatura $y_k^T s_k > 0$.\textbf{Robustez}: Funciona bien en una amplia variedad de problemas sin requerir ajustes finos de parámetros.\textbf{Escalabilidad}: Es adecuado para problemas de mediana dimensión (decenas a cientos de variables).
+Evita el cálculo explícito del Hessiano, reduciendo significativamente el costo computacional.Bajo condiciones adecuadas, exhibe convergencia superlineal, más rápida que los métodos de gradiente. La actualización BFGS mantiene la definida positividad de $H_k$ si se satisface la condición de curvatura $y_k^T s_k > 0$. Funciona bien en una amplia variedad de problemas sin requerir ajustes finos de parámetros. Es adecuado para problemas de mediana dimensión (decenas a cientos de variables).
 
 
-El algoritmo implementado consta de tres componentes principales: \textbf{Función Objetivo y Gradiente}: Define el problema de optimización a resolver.\textbf{Búsqueda de Línea con Armijo}: Garantiza un decrecimiento suficiente en cada iteración mediante la condición:
-    \begin{equation}
-    f(x_k + \alpha p_k) \leq f(x_k) + c \alpha \nabla f(x_k)^T p_k
-    \end{equation}\textbf{Actualización BFGS}: Mejora iterativamente la aproximación del Hessiano inverso.
+El algoritmo implementado consta de tres componentes principales:
+ Función Objetivo y Gradiente ,Búsqueda de Línea con Armijo ,Actualización BFGS
 
 En la implementación mostrada, se incluyen varias salvaguardas numéricas:
-\textbf{Condición de Curvatura}: Se verifica $y_k^T s_k > 10^{-10}$ antes de actualizar $H_k$
-\textbf{Criterio de Parada}: Basado en la norma del gradiente $\|\nabla f(x_k)\| < \text{tol}$
-\textbf{Límite de Iteraciones}: Evita ciclos infinitos con un máximo de iteraciones
-\textbf{Estabilización Numérica}: Uso de log-sum-exp para evitar overflow numérico.
+Se verifica $y_k^T s_k > 10^{-10}$ antes de actualizar $H_k$
+ , criterio de parada Basado en la norma del gradiente $\|\nabla f(x_k)\| < \text{tol}$
+y Límite de Iteraciones para evitar ciclos infinitos con un máximo de iteraciones. Uso de log-sum-exp para evitar overflow numérico.
 
 El algoritmo BFGS es particularmente útil en:
 Problemas de aprendizaje automático (regresión logística, SVM),Calibración de modelos financieros,Optimización de parámetros en ingeniería, Ajuste de curvas en análisis de datos,Problemas de diseño óptimo.
@@ -385,7 +382,7 @@ En cada iteración, el algoritmo realiza lo siguiente:
 
 \section{Comparación entre los métodos BFGS y Newton amortiguado}
 
-Con el objetivo de evaluar el desempeño de ambos métodos de optimización, se aplicaron sobre un mismo conjunto de $100$ puntos iniciales. A continuación se presenta un resumen de los resultados obtenidos.
+Con el objetivo de evaluar el desempeño de ambos métodos de optimización, se aplicaron sobre un mismo conjunto de $100$ puntos iniciales , escogidos de manera aleatoria en un rango entre 100 y - 100 . A continuación se presenta un resumen de los resultados obtenidos.
 
 \begin{table}[H]
 \centering

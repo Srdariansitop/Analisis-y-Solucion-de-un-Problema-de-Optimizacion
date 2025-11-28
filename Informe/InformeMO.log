@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.25)  28 NOV 2025 00:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.3.25)  28 NOV 2025 00:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -674,30 +674,30 @@ Overfull \hbox (224.14966pt too wide) detected at line 129
 1/cmr/m/n/10 ) = [] [] \OMS/cmsy/m/n/10 ^^@ [] [] \OML/cmm/m/it/10 :
  []
 
-[2] [3] [4] [5]
-<comparacion_iteraciones.png, id=36, 489.62926pt x 327.02174pt>
+[2] [3] [4]
+<comparacion_iteraciones.png, id=33, 489.62926pt x 327.02174pt>
 File: comparacion_iteraciones.png Graphic file (type png)
 <use comparacion_iteraciones.png>
-Package pdftex.def Info: comparacion_iteraciones.png  used on input line 411.
+Package pdftex.def Info: comparacion_iteraciones.png  used on input line 408.
 (pdftex.def)             Requested size: 362.37569pt x 242.02722pt.
+ [5]
 <contorno.png, id=38, 1067.187pt x 563.10374pt>
 File: contorno.png Graphic file (type png)
 <use contorno.png>
-Package pdftex.def Info: contorno.png  used on input line 439.
+Package pdftex.def Info: contorno.png  used on input line 436.
 (pdftex.def)             Requested size: 362.37569pt x 191.21216pt.
- [6 <./comparacion_iteraciones.png>]
-<Superficie.png, id=43, 1443.14156pt x 713.66624pt>
+ [6 <./comparacion_iteraciones.png> <./contorno.png>]
+<Superficie.png, id=44, 1443.14156pt x 713.66624pt>
 File: Superficie.png Graphic file (type png)
 <use Superficie.png>
-Package pdftex.def Info: Superficie.png  used on input line 449.
+Package pdftex.def Info: Superficie.png  used on input line 446.
 (pdftex.def)             Requested size: 362.37569pt x 179.20016pt.
- [7 <./contorno.png> <./Superficie.png>]
-<Instancia_algoritmos.png, id=50, 1151.502pt x 567.3195pt>
+<Instancia_algoritmos.png, id=45, 1151.502pt x 567.3195pt>
 File: Instancia_algoritmos.png Graphic file (type png)
 <use Instancia_algoritmos.png>
-Package pdftex.def Info: Instancia_algoritmos.png  used on input line 498.
+Package pdftex.def Info: Instancia_algoritmos.png  used on input line 495.
 (pdftex.def)             Requested size: 362.37569pt x 178.53345pt.
- [8 <./Instancia_algoritmos.png>] (InformeMO.aux
+ [7 <./Superficie.png>] [8 <./Instancia_algoritmos.png>] (InformeMO.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -713,7 +713,7 @@ Here is how much of TeX's memory you used:
  37928 multiletter control sequences out of 15000+600000
  566897 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,93p,706b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,93p,540b,366s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx12.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -732,7 +732,7 @@ ts/cm/cmsy10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy7.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmti10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on InformeMO.pdf (8 pages, 961281 bytes).
+Output written on InformeMO.pdf (8 pages, 960055 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
