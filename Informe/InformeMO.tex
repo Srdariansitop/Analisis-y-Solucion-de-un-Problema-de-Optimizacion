@@ -350,7 +350,7 @@ Si $\lambda$ es pequeño (cercano a cero), la matriz $\mathbf{H}_k + \lambda \ma
 El algoritmo ajusta $\lambda$ dinámicamente:
 Si un paso es exitoso (la función disminuye), se reduce $\lambda$ (hacia Newton).Si el paso falla o la dirección no es de descenso, se aumenta $\lambda$ (hacia Máximo Descenso, para estabilizar).
 
-Búsqueda de Línea (Armijo Backtracking): Una vez que se tiene una dirección de búsqueda $\mathbf{p}_k$, el algoritmo necesita decidir cuánto avanzar en esa dirección, es decir, encontrar el tamaño de paso $\alpha$.La Búsqueda de Línea con backtracking (retroceso) de Armijo es un procedimiento que comienza con un $\alpha$ grande (por ejemplo, $\alpha=1$) y lo va reduciendo hasta que se cumpla una condición que asegure un ``descenso suficiente'' en la función.
+La Búsqueda de Línea con backtracking (retroceso) de Armijo es un procedimiento que comienza con un $\alpha$ grande (por ejemplo, $\alpha=1$) y lo va reduciendo hasta que se cumpla una condición que asegure un ``descenso suficiente'' en la función.
 
 Condición de Armijo (Suficiente Descenso):
 \[
